@@ -26,8 +26,8 @@ jobs:
         ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
           cd /home/ubuntu/ness-frontend  # or wherever your code should live
           git pull origin main     # pull latest code
-          docker stop nessefy-frontend || true
-          docker rm nessefy-frontend || true
-          docker build -t nessefy-frontend .
-          docker run -d --name nessefy-frontend -p 5000:80 nessefy-frontend
+          sudo docker stop nessefy-frontend || true
+          sudo docker rm nessefy-frontend || true
+          sudo docker build -t nessefy-frontend .
+          sudo docker run -d --name nessefy-frontend -p 5000:80 nessefy-frontend
         EOF
