@@ -9,6 +9,7 @@ Step2 : build docker container
 docker build -t nessefy-frontend .
 
 Step3 : run docker image
-docker run -d -p 80:80 nessefy-frontend
+docker run -d -p 80:80 -p 443:443 -v /etc/letsencrypt:/etc/letsencrypt nessefy-frontend
+
 
 you are set now - open http://localhost:80

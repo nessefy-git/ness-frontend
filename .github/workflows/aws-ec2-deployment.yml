@@ -27,7 +27,7 @@ jobs:
           cd /home/ubuntu/ness-frontend  # or wherever your code should live
           git pull origin main     # pull latest code
           sudo docker stop nessefy-frontend || true
-          sudo docker rm nessefy-frontend || true
+          sudo docker rmi -f nessefy-frontend || true
           sudo docker build -t nessefy-frontend .
-          sudo docker run -d --name nessefy-frontend -p 5000:80 nessefy-frontend
+          sudo docker run -d -p 80:80 -p 443:443 -v /etc/letsencrypt:/etc/letsencrypt nessefy-frontend
         EOF
