@@ -1,14 +1,37 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { forgotPassword } from '../../api/auth/auth.js'; // Adjust the import path as needed
 import styles from './Auth.module.css';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add password reset logic here
-    console.log('Reset link sent to:', email);
+    setError('');
+    setSuccess('');
+    setLoading(true);
+
+    try {
+      const data = await forgotPassword(email);
+      
+      // Success - show success message
+      setSuccess('Password reset link has been sent to your email address.');
+      setEmail(''); // Clear the email field
+      
+    } catch (err) {
+      // Handle error
+      const errorMessage = err.response?.data?.message || 
+                          err.message || 
+                          'Failed to send reset link. Please try again.';
+      setError(errorMessage);
+      console.error('Forgot password error:', err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -24,10 +47,18 @@ const ForgotPassword = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
             className={styles.input}
+            disabled={loading}
           />
 
-          <button type="submit" className={`${styles.button} ${styles.forgotPasswordButton}`}>
-            Send Reset Link
+          {error && <p className={styles.errorText}>{error}</p>}
+          {success && <p className={styles.successText}>{success}</p>}
+
+          <button 
+            type="submit" 
+            className={`${styles.button} ${styles.forgotPasswordButton}`}
+            disabled={loading}
+          >
+            {loading ? 'Sending...' : 'Send Reset Link'}
           </button>
         </div>
 

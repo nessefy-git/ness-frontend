@@ -4,6 +4,8 @@ import Login from './screen/AuthScreen/Login';
 import Register from './screen/AuthScreen/Register';
 import ForgotPassword from './screen/AuthScreen/ForgotPassword';
 import UserDetailsForm from './screen/UserDetailScreen/UserDetailsForm';
+import ResetPassword from './screen/AuthScreen/ResetPassword';
+import { HomePage } from './screen/dashboard/HomePage';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path='/user-details' element={<UserDetailsForm />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/home" element={<HomePage />} />
       </Routes>
     </Router>
   );
