@@ -1,4 +1,4 @@
-import axiosInstance from './axios';
+import axiosInstance from '../axios.js';
 
 // Register user
 export const registerUser = async (data) => {
@@ -17,7 +17,7 @@ export const verifyOtp = async (email, otp) => {
 
 // Resend OTP
 export const resendOtp = async (email) => {
-  const response = await axiosInstance.post('/Auth/resend-otp', { email });
+  const response = await axiosInstance.post('/Auth/resend-otp', email);
   return response.data;
 };
 

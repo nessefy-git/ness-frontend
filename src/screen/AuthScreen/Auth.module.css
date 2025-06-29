@@ -67,10 +67,19 @@
   /* transition: box-shadow 0.3s ease; */
 }
 
-.form:hover {
-  /* box-shadow: 0 8px 32px #BC6c25; */
+<<<<<<< Updated upstream
+=======
+.error {
+  color: #e63946;
+  background-color: #ffe5e5;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 500;
 }
 
+>>>>>>> Stashed changes
 .heading {
   text-align: center;
   color: var(--text-muted);
@@ -188,9 +197,187 @@
 .cabutton{
   width: 50%;
   background-color: #fb9833;
+  text-align: center;
+  text-decoration: none;
 }
 
 .cabutton:hover{
   background-color: #d4802b;
   box-shadow: 0px 2px 8px var(--bg-dark);
+}
+
+.otpInstruction {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.otpActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.linkButton {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.linkButton:hover {
+  color: var(--secondary-color);
+}
+
+.linkButton:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+/* MOBILE STYLES */
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 1rem;
+  }
+
+  .logocont {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .nessefyLogo {
+    font-size: 2.5rem;
+  }
+
+  .nessefyDes {
+    margin-top: 1.5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .verticalLine {
+    display: none;
+  }
+
+  .form {
+    padding: 1.5rem;
+    max-width: 350px;
+    box-shadow: 0 6px 20px rgba(77, 85, 91, 0.3);
+  }
+
+  .heading {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .formGroup {
+    gap: 1rem;
+  }
+
+  .cabutton {
+    width: 70%;
+  }
+
+  .linksContainer {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .otpActions {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .otpInstruction {
+    font-size: 0.9rem;
+  }
+}
+
+/* TABLET STYLES */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+
+  .logocont {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .nessefyLogo {
+    font-size: 3.5rem;
+  }
+
+  .nessefyDes {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+  }
+
+  .verticalLine {
+    display: none;
+  }
+
+  .form {
+    padding: 2rem;
+    max-width: 450px;
+    box-shadow: 0 8px 24px rgba(77, 85, 91, 0.4);
+  }
+
+  .heading {
+    font-size: 1.6rem;
+  }
+
+  .cabutton {
+    width: 60%;
+  }
+}
+
+/* MOBILE LANDSCAPE */
+@media (max-width: 767px) and (orientation: landscape) {
+  .container {
+    flex-direction: row;
+    padding: 1rem;
+  }
+
+  .logocont {
+    width: 40%;
+    margin-bottom: 0;
+    margin-right: 2rem;
+    text-align: left;
+  }
+
+  .nessefyLogo {
+    font-size: 2rem;
+  }
+
+  .nessefyDes {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .verticalLine {
+    display: none;
+  }
+
+  .form {
+    max-width: 350px;
+    padding: 1.5rem;
+  }
+
+  .heading {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .formGroup {
+    gap: 0.8rem;
+  }
 }
